@@ -1,5 +1,21 @@
 azul = #22BCE0
 gris_oscuro = #444
+gris_texto = #7A7A7A
+naranja = #DD4F24 
+
+@font-face {
+	font-family: 'iconitos';
+	src:url('../fonts/icomoon.eot?-w1o4ij');
+	src:url('../fonts/icomoon.eot?#iefix-w1o4ij') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-w1o4ij') format('woff'),
+		url('../fonts/icomoon.ttf?-w1o4ij') format('truetype'),
+		url('../fonts/icomoon.svg?-w1o4ij#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a
+	color naranja
 
 body
 	background #E8E8E8
@@ -7,20 +23,67 @@ body
 	font-family Arial
 	font-size 16px
 
+footer
+	background naranja
+	color rgba(#fff,0.5)
+	padding 1em 0
+	text-align center
+	width 100%
+	
+	h3
+		font-size 14px
+		font-weight normal
+		
+		strong
+			display block
+		.mejor
+			&:before
+			&:after
+				content " - "
+
 header
 	background gris_oscuro
+	box-shadow 0 5px 0 rgba(0,0,0,0.2)
 	color #fff
+	overflow hidden
 	padding 0.5em
+	position relative
+	z-index 1
 
 	.logo
 		border-right 1px solid azul
+		float left
 		width 60px
 
 		img
 			width 52px
 
 	.titular
-		margin 0 80px 0 70px
+		margin 0 60px 0 70px
+		
+		.filtro
+			color azul
+			font-size 14px
+			font-style italic
+			font-weight bold
+			text-decoration none
+			
+		.publicar
+			background naranja
+			color #fff
+			float right
+			font-style italic
+			margin -5px 1em 0 0
+			padding 0.2em 0.5em
+			text-decoration none
+			text-shadow 1px 1px 0px #000
+			
+			&:before
+				display inline-block
+				font-family "iconitos"
+				content "\e908"
+				margin 0 3px 0 0
+				
 		.titulo
 			font-size 18px
 			font-weight normal
@@ -28,18 +91,196 @@ header
 			padding 0
 
 	.usuario
+		position absolute
+		right 10px
+		top 10px
+
 		.avatar
+			margin 0 1.1em 0 0
+			position relative
+			z-index 2
+			
 			img
 				border-radius 50%
 				width 50px
+		.flechita
+			background naranja
+			color: #fff
+			display block
+			padding 2px
+			position absolute
+			right 0
+			text-align right
+			text-decoration none
+			top 15px
+			width 50%
+			z-index 0
+			
+			&:after
+				font-family "iconitos"
+				content "\f05b"
+				display inline-block
+				text-shadow 1px 1px 0 #000
 nav
 	background azul
+	border-left 15px solid #fff
+	position relative
+	
+	&:before
+		border-bottom 20px solid transparent
+		border-left 7px solid #fff
+		border-top 20px solid transparent
+		content ""
+		left 0
+		position absolute
+		top 0
+	
+	.menu
+		height 40px
+		line-height 40px
+		margin 0
+		overflow-x auto
+		padding 0
+		white-space nowrap 
+		
+		li
+			display inline-block
+			
+			a
+				color #fff
+				display block
+				margin 0 0.5em
+				padding 0 0.2em
+				text-decoration none
 
-.left
-	float left
+.posts
+	padding 0.5em
+	
+	.post
+		background #fff;
+		border-radius 0 0 0.5em 0.5em
+		box-shadow 2px 2px 10px rgba(#000,0.5)
+		color gris_texto
+		margin-bottom 1em
+	
+		.acciones
+			border-top 3px solid azul
+			overflow hidden
+			padding 0.5em
+		
+			.datos
+				float right
+			
+				.comentarios
+					background gris_oscuro
+					border-radius 3px
+					color #fff;
+					margin 0 1em 0 0
+					padding 2px 5px
+					position relative
+					text-decoration none
+					
+					&:after
+						bottom -5px
+						border-left 5px solid transparent
+						border-right 5px solid transparent
+						border-top 7px solid gris_oscuro
+						content ""
+						right 7px
+						position absolute
+					
+				.estrellita
+					text-decoration none
+					&:after
+						font-family "iconitos"
+						color #FFD600
+						content "\e9d9"
 
-.right
-	float right
+			.votos
+				float left
+			
+				.down 
+				.up
+					text-decoration none
+				
+				.down
+					color #F44336//ROJO
+					&:before
+						font-family "iconitos"
+						font-size 1.5em
+						content "\f05b"
+						vertical-align bottom
+					
+				.up
+					color #4CAF50//VERDE
+					&:before
+						font-family "iconitos"
+						font-size 1.5em
+						content "\f0aa"
+						vertical-align bottom
+		
+		.descripcion
+			color gris_texto
+		
+			.detalles
+				height 160px
+				margin-left 130px
+				
+				.autor
+					margin 0.5em 0 2em 0
+					
+				.fecha
+					float right
+					margin 0 1em 0 0
+
+				.tag
+					background azul
+					border-radius 0.5em
+					color #fff
+					padding 0.2em 0.5em
+					text-decoration none
+
+				.titulo
+					color gris_oscuro
+					font-size 18px
+					font-style italic
+					margin 0
+					padding 0.5em 0.5em 0 0
+		
+			.imagen
+				float left
+				margin 0
+				
+				img
+					height 160px
+					vertical-align top
+					width 120px
+
+@media screen and (min-width: 768px)
+	header
+		.titular
+			.publicar
+				padding-left 3em
+				position relative
+				
+				&:before
+					font-size 2.5em
+					left 0px
+					position absolute
+					top -10px
+	.posts
+		.post
+			display inline-block
+			width 48%
+			vertical-align top
+			&:nth-child(odd)//elementos impar
+				margin-right 2%
+			//elementos par
+			//&:nth-child(even)
+			//	background yellow
+				
+
+	
 
 
 
